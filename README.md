@@ -16,7 +16,8 @@ pip install --upgrade --quiet \
   rich \
   dspy \
   ujson \
-  openai
+  openai \
+  sentence_transformers
 ```
 
 MLFLow
