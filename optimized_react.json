@@ -1,0 +1,124 @@
+{
+  "react": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "That Darn Cat! and Never a Dull Moment were both produced by what studio?",
+        "trajectory": "[[ ## thought_0 ## ]]\nThe studio behind That Darn Cat! and Never a Dull Moment is Disney.\n\n[[ ## tool_name_0 ## ]]\nsearch\n\n[[ ## tool_args_0 ## ]]\n{\"query\": {\"type\": \"string\"}}\n\n[[ ## observation_0 ## ]]\nExecution error in search: \nTraceback (most recent call last):\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 124, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/jsonschema\/validators.py\", line 1332, in validate\n    raise error\njsonschema.exceptions.ValidationError: {'type': 'string'} is not of type 'string'\n\nFailed validating 'type' in schema:\n    {'type': 'string'}\n\nOn instance:\n    {'type': 'string'}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/predict\/react.py\", line 88, in forward\n    trajectory[f\"observation_{idx}\"] = self.tools[pred.next_tool_name](**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/utils\/callback.py\", line 343, in sync_wrapper\n    raise exception\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/utils\/callback.py\", line 339, in sync_wrapper\n    results = fn(instance, *args, **kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 143, in __call__\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 126, in _validate_and_parse_args\n    raise ValueError(f\"Arg {k} is invalid: {e.message}\")\nValueError: Arg query is invalid: {'type': 'string'} is not of type 'string'",
+        "next_thought": "The error message indicates that the 'query' argument in the search tool is not a string, but rather a dictionary with a 'type' key. This suggests that the 'query' argument should be a string, not an object.",
+        "next_tool_name": "search",
+        "next_tool_args": {
+          "query": {
+            "query": "That Darn Cat! and Never a Dull Moment studio"
+          }
+        }
+      },
+      {
+        "question": "Are Smyrnium and Nymania both types of plant?",
+        "answer": "yes",
+        "dspy_uuid": "81674409-6d79-4170-8679-f37b28e9c63d",
+        "dspy_split": "train"
+      },
+      {
+        "question": "Was Yakov Protazanov or Marcel Duchamp born in 1881",
+        "answer": "Yakov Alexandrovich Protazanov (Russian: \u042f\u0301\u043a\u043e\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u0301\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u041f\u0440\u043e\u0442\u0430\u0437\u0430\u0301\u043d\u043e\u0432 ; January 23 (O.S. February 4), 1881",
+        "dspy_uuid": "dc660288-3613-490a-8446-953e2f3fbd76",
+        "dspy_split": "train"
+      },
+      {
+        "question": "What was the name of the man who Carol Kane played the wife of who was a lovable-but-goofy mechanic in a television series?",
+        "answer": "Latka Gravas",
+        "dspy_uuid": "caae4b86-e6e2-422d-bb50-28bfd69cb307",
+        "dspy_split": "train"
+      }
+    ],
+    "signature": {
+      "instructions": "You are an Agent tasked with answering a question by utilizing the tools available. You will be given a question as input, and your goal is to use one or more tools to collect necessary information for producing an answer. The tools at your disposal are \"search\" and \"finish.\" The \"search\" tool retrieves abstracts from Wikipedia and takes a query in JSON format, while the \"finish\" tool marks the task as complete and signals that all necessary information for producing the output is available. You will interleave your next thought, tool name, and tool arguments in each turn, and append the resulting observation to your trajectory. When writing your next thought, you may reason about the current situation and plan for future steps. You must select a tool name and its tool arguments from the available options. The question is: That Darn Cat! and Never a Dull Moment were both produced by what studio?",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Next Thought:",
+          "description": "${next_thought}"
+        },
+        {
+          "prefix": "Next Tool Name:",
+          "description": "${next_tool_name}"
+        },
+        {
+          "prefix": "Next Tool Args:",
+          "description": "${next_tool_args}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "That Darn Cat! and Never a Dull Moment were both produced by what studio?",
+        "trajectory": "[[ ## thought_0 ## ]]\nThe studio behind That Darn Cat! and Never a Dull Moment is Disney.\n\n[[ ## tool_name_0 ## ]]\nsearch\n\n[[ ## tool_args_0 ## ]]\n{\"query\": {\"type\": \"string\"}}\n\n[[ ## observation_0 ## ]]\nExecution error in search: \nTraceback (most recent call last):\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 124, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/jsonschema\/validators.py\", line 1332, in validate\n    raise error\njsonschema.exceptions.ValidationError: {'type': 'string'} is not of type 'string'\n\nFailed validating 'type' in schema:\n    {'type': 'string'}\n\nOn instance:\n    {'type': 'string'}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/predict\/react.py\", line 88, in forward\n    trajectory[f\"observation_{idx}\"] = self.tools[pred.next_tool_name](**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/utils\/callback.py\", line 343, in sync_wrapper\n    raise exception\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/utils\/callback.py\", line 339, in sync_wrapper\n    results = fn(instance, *args, **kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 143, in __call__\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 126, in _validate_and_parse_args\n    raise ValueError(f\"Arg {k} is invalid: {e.message}\")\nValueError: Arg query is invalid: {'type': 'string'} is not of type 'string'\n\n[[ ## thought_1 ## ]]\nThe error message indicates that the 'query' argument in the search tool is not a string, but rather a dictionary with a 'type' key. This suggests that the 'query' argument should be a string, not an object.\n\n[[ ## tool_name_1 ## ]]\nsearch\n\n[[ ## tool_args_1 ## ]]\n{\"query\": {\"query\": \"That Darn Cat! and Never a Dull Moment studio\"}}\n\n[[ ## observation_1 ## ]]\nExecution error in search: \nTraceback (most recent call last):\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 124, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/jsonschema\/validators.py\", line 1332, in validate\n    raise error\njsonschema.exceptions.ValidationError: {'query': 'That Darn Cat! and Never a Dull Moment studio'} is not of type 'string'\n\nFailed validating 'type' in schema:\n    {'type': 'string'}\n\nOn instance:\n    {'query': 'That Darn Cat! and Never a Dull Moment studio'}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/predict\/react.py\", line 88, in forward\n    trajectory[f\"observation_{idx}\"] = self.tools[pred.next_tool_name](**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/utils\/callback.py\", line 343, in sync_wrapper\n    raise exception\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/utils\/callback.py\", line 339, in sync_wrapper\n    results = fn(instance, *args, **kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 143, in __call__\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"\/home\/mike\/git\/dspy-tool-use\/venv\/lib64\/python3.12\/site-packages\/dspy\/primitives\/tool.py\", line 126, in _validate_and_parse_args\n    raise ValueError(f\"Arg {k} is invalid: {e.message}\")\nValueError: Arg query is invalid: {'query': 'That Darn Cat! and Never a Dull Moment studio'} is not of type 'string'\n\n[[ ## thought_2 ## ]]\nThe error message indicates that the 'query' argument in the search tool is not a string, but rather a dictionary with a 'type' key. This suggests that the 'query' argument should be a string, not an object.\n\n[[ ## tool_name_2 ## ]]\nsearch\n\n[[ ## tool_args_2 ## ]]\n{\"query\": \"That Darn Cat! and Never a Dull Moment studio\"}\n\n[[ ## observation_2 ## ]]\n[1] \u00abNever a Dull Moment (1950 film) | Never a Dull Moment is a 1950 American comedy film from RKO, starring Irene Dunne and Fred MacMurray. The film is based on the 1943 book \"Who Could Ask For Anything More?\" by Kay Swift. The filming took place between December 5, 1949, and February 1, 1950.\u00bb\n[2] \u00abNever a Dull Moment (1968 film) | Never a Dull Moment is a 1968 American comedy crime film from Walt Disney Productions starring Dick Van Dyke and Edward G. Robinson and directed by Jerry Paris. The script by AJ Carothers was based on a novel by John Godey. The supporting cast features Dorothy Provine, Henry Silva, Slim Pickens and Jack Elam.\u00bb\n[3] \u00abThat Darn Cat! | That Darn Cat! is a 1965 American Walt Disney Productions thriller comedy film starring Hayley Mills (in her last of the six films she made for the Walt Disney Studios) and Dean Jones (starring in his first film for Disney) in a story about bank robbers, a kidnapping and a mischievous cat. The film was based on the 1963 novel \"Undercover Cat\" by Gordon and Mildred Gordon and was directed by Robert Stevenson. The title song was written by the Sherman Brothers and sung by Bobby Darin. The 1997 remake includes a cameo appearance by Dean Jones.\u00bb\n\n[[ ## thought_3 ## ]]\nThe error message indicates that the 'query' argument in the search tool is not a string, but rather a dictionary with a 'type' key. This suggests that the 'query' argument should be a string, not an object.\n\n[[ ## tool_name_3 ## ]]\nsearch\n\n[[ ## tool_args_3 ## ]]\n{\"query\": \"That Darn Cat! and Never a Dull Moment studio\"}\n\n[[ ## observation_3 ## ]]\n[1] \u00abNever a Dull Moment (1950 film) | Never a Dull Moment is a 1950 American comedy film from RKO, starring Irene Dunne and Fred MacMurray. The film is based on the 1943 book \"Who Could Ask For Anything More?\" by Kay Swift. The filming took place between December 5, 1949, and February 1, 1950.\u00bb\n[2] \u00abNever a Dull Moment (1968 film) | Never a Dull Moment is a 1968 American comedy crime film from Walt Disney Productions starring Dick Van Dyke and Edward G. Robinson and directed by Jerry Paris. The script by AJ Carothers was based on a novel by John Godey. The supporting cast features Dorothy Provine, Henry Silva, Slim Pickens and Jack Elam.\u00bb\n[3] \u00abThat Darn Cat! | That Darn Cat! is a 1965 American Walt Disney Productions thriller comedy film starring Hayley Mills (in her last of the six films she made for the Walt Disney Studios) and Dean Jones (starring in his first film for Disney) in a story about bank robbers, a kidnapping and a mischievous cat. The film was based on the 1963 novel \"Undercover Cat\" by Gordon and Mildred Gordon and was directed by Robert Stevenson. The title song was written by the Sherman Brothers and sung by Bobby Darin. The 1997 remake includes a cameo appearance by Dean Jones.\u00bb\n\n[[ ## thought_4 ## ]]\nThe error message indicates that the 'query' argument in the search tool is not a string, but rather a dictionary with a 'type' key. This suggests that the 'query' argument should be a string, not an object.\n\n[[ ## tool_name_4 ## ]]\nsearch\n\n[[ ## tool_args_4 ## ]]\n{\"query\": \"That Darn Cat! and Never a Dull Moment studio\"}\n\n[[ ## observation_4 ## ]]\n[1] \u00abNever a Dull Moment (1950 film) | Never a Dull Moment is a 1950 American comedy film from RKO, starring Irene Dunne and Fred MacMurray. The film is based on the 1943 book \"Who Could Ask For Anything More?\" by Kay Swift. The filming took place between December 5, 1949, and February 1, 1950.\u00bb\n[2] \u00abNever a Dull Moment (1968 film) | Never a Dull Moment is a 1968 American comedy crime film from Walt Disney Productions starring Dick Van Dyke and Edward G. Robinson and directed by Jerry Paris. The script by AJ Carothers was based on a novel by John Godey. The supporting cast features Dorothy Provine, Henry Silva, Slim Pickens and Jack Elam.\u00bb\n[3] \u00abThat Darn Cat! | That Darn Cat! is a 1965 American Walt Disney Productions thriller comedy film starring Hayley Mills (in her last of the six films she made for the Walt Disney Studios) and Dean Jones (starring in his first film for Disney) in a story about bank robbers, a kidnapping and a mischievous cat. The film was based on the 1963 novel \"Undercover Cat\" by Gordon and Mildred Gordon and was directed by Robert Stevenson. The title song was written by the Sherman Brothers and sung by Bobby Darin. The 1997 remake includes a cameo appearance by Dean Jones.\u00bb",
+        "reasoning": "The search tool is unable to provide a valid query due to the incorrect format of the 'query' argument, which is expected to be a string but is instead a dictionary with a 'type' key.",
+        "answer": "Walt Disney Productions"
+      },
+      {
+        "question": "Was Yakov Protazanov or Marcel Duchamp born in 1881",
+        "answer": "Yakov Alexandrovich Protazanov (Russian: \u042f\u0301\u043a\u043e\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u0301\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u041f\u0440\u043e\u0442\u0430\u0437\u0430\u0301\u043d\u043e\u0432 ; January 23 (O.S. February 4), 1881",
+        "dspy_uuid": "dc660288-3613-490a-8446-953e2f3fbd76",
+        "dspy_split": "train"
+      },
+      {
+        "question": "Are Smyrnium and Nymania both types of plant?",
+        "answer": "yes",
+        "dspy_uuid": "81674409-6d79-4170-8679-f37b28e9c63d",
+        "dspy_split": "train"
+      },
+      {
+        "question": "What was the name of the man who Carol Kane played the wife of who was a lovable-but-goofy mechanic in a television series?",
+        "answer": "Latka Gravas",
+        "dspy_uuid": "caae4b86-e6e2-422d-bb50-28bfd69cb307",
+        "dspy_split": "train"
+      }
+    ],
+    "signature": {
+      "instructions": "Walt Disney Productions",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "2.6.24",
+      "cloudpickle": "3.1"
+    }
+  }
+}

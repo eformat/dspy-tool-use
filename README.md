@@ -31,7 +31,17 @@ LLM's locally
 export MODEL=DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf
 export MODEL=Llama-3.2-3B-Instruct-Q8_0.gguf
 
-podman run -p 8080:8080 --net=host --device nvidia.com/gpu=0 --security-opt label=type:nvidia_container_t -v /home/mike/instructlab/models:/models:Z ghcr.io/ggerganov/llama.cpp:full-cuda --server -m /models/${MODEL} --gpu-layers 999 -np 3 --ctx-size 18000
+podman run \
+    -p 8080:8080 \
+    --net=host \
+    --device nvidia.com/gpu=0 \
+    --security-opt label=type:nvidia_container_t \
+    -v /home/mike/instructlab/models:/models:Z \
+    ghcr.io/ggerganov/llama.cpp:full-cuda \
+    --server -m /models/${MODEL} \
+    --gpu-layers 999 \
+    -np 3 \
+    --ctx-size 18000
 ```
 
 LLM's remotely
